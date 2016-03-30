@@ -7,7 +7,8 @@
 
 output=0
 fin=0
-echo -n "Type in your number range \"start\", followed by [ENTER]:"
+echo "Give a range of numbers!"
+echo -n "Type in your \"start\" range , followed by [ENTER]:"
 read start
 echo -n "Enter your \"stop\" range and press [ENTER]:"
 read stop
