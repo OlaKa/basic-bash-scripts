@@ -1,0 +1,16 @@
+#!/bin/bash
+# Proper header for a Bash script.
+#Find your lucky nunber which should add up to 7
+#or be 7
+output=0
+echo "Type in your lucky number, followed by [ENTER]:"
+read luckynr
+if [ "$luckynr" == "7" ];then
+    echo "Correct! $luckynr is your lucky number!"
+    exit
+fi
+range=`expr ${#luckynr} - 1`
+for i in $(seq 0 $range);do
+        output=`expr ${luckynr:$i:1} + $output`
+done
+
