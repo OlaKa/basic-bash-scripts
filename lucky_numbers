@@ -1,9 +1,9 @@
 #!/bin/bash
 # Proper header for a Bash script.
-#Find your lucky nunber which should add up to 7
-#or be 7
+#Find your lucky nunber which should add up to 7 or be 7
 #For example, 62431 is a lucky number (6 + 2 + 4 + 3 + 1 = 16, 1 + 6 = 7).
-#Prints out all lucky numbers between 1000 and 10000 your stated range
+#Prints out all lucky numbers between 1000 and 10000 or your stated range
+#Input from shell
 
 output=0
 fin=0
