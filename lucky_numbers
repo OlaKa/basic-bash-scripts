@@ -2,15 +2,40 @@
 # Proper header for a Bash script.
 #Find your lucky nunber which should add up to 7
 #or be 7
+#For example, 62431 is a lucky number (6 + 2 + 4 + 3 + 1 = 16, 1 + 6 = 7).
+#Prints out all lucky numbers between 1000 and 10000 your stated range
+
 output=0
-echo "Type in your lucky number, followed by [ENTER]:"
-read luckynr
-if [ "$luckynr" == "7" ];then
-    echo "Correct! $luckynr is your lucky number!"
-    exit
-fi
-range=`expr ${#luckynr} - 1`
-for i in $(seq 0 $range);do
+fin=0
+echo -n "Type in your number range \"start\", followed by [ENTER]:"
+read start
+echo -n "Enter your \"stop\" range and press [ENTER]:"
+read stop
+luckynr=$start
+while (( $stop >= $start ))
+do
+    if [ "$luckynr" == "7" ];then
+	echo "Correct! $luckynr is your lucky number!"
+    fi
+    range=`expr ${#luckynr} - 1`
+    for i in $(seq 0 $range);do
         output=`expr ${luckynr:$i:1} + $output`
+    done
+    loop=`expr ${#output} - 1`
+    for i in $(seq 0 $loop);do
+        fin=`expr ${output:$i:1} + $fin`
+    done
+    if [ "$fin" == "7" ];then
+	echo "Your original number is: $luckynr"
+	echo "The sum of your numbers added up to $output"
+	echo "${output:0:1} + ${output:1:1} is $fin, your lucky number!"
+    else
+	echo #"The result was $fin. Not your lucky number!!"
+    fi
+    luckynr=`expr $luckynr + 1`
+    start=`expr $start + 1`
+    output=0
+    fin=0
 done
+
 
