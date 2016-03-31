@@ -1,0 +1,23 @@
+#!/bin/bash
+#Write a program that prints the numbers from 1 to 100. 
+#But for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". 
+#For numbers which are multiples of both three and five print "FizzBuzz".
+start=1
+stop=100
+
+while (( $stop >= $start ))
+do
+	if (( $start % 3 == 0 )) && (( $start % 5 == 0 )) 
+	then
+	      echo "FizzBuzz! $start"
+	elif  (($start % 3 == 0 ))
+	then
+	      echo "Fizz! $start"
+	elif  (($start % 5 == 0 ))
+	then
+	      echo "Buzz! $start"
+	else
+	      echo "Not Fiz or Buzz! $start"
+	fi
+	start=`expr $start + 1`
+done
