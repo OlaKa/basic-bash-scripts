@@ -17,7 +17,7 @@ do
 	then
 	      echo "Buzz! $start"
 	else
-	      echo "Not Fiz or Buzz! $start"
+	      echo "Not Fizz or Buzz! $start"
 	fi
 	start=`expr $start + 1`
 done
