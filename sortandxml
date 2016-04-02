@@ -1,0 +1,42 @@
+#!/bin/bash
+#
+#Input field is on following form: Username:Firstname:Lastname:Telephone number
+#Example:matrix:John:Doe:0701234567
+#
+INPUT=$1
+SIMPDIR=/tmp
+if [ -z "$1" ]
+  then
+    echo -e "You must provide a input to the script with"
+    echo -e "format: Username:Firstname:Lastname:Telephone number"
+    exit
+fi
+
+echo $INPUT | awk -F':' '
+{
+      print "dn:"$1", dc=example, dc=com"
+      print "cn:" $2" " $3
+      print "sn:" $3
+      print "telephoneNumber:" $4
+}' 
+#Produce a very simple html page
+FLD1=`echo $INPUT | cut -d \: -f 1`
+FLD2=`echo $INPUT | cut -d \: -f 2`
+FLD3=`echo $INPUT | cut -d \: -f 3`
+FLD4=`echo $INPUT | cut -d \: -f 4`
+
+echo " <html>
+	  <head>
+	     <title>$FLD1 Info Page</title>
+	  </head>
+	  <body>
+	     <center> <h1>$FLD2 $FLD3</h1></center>
+	     <center><p>My summer vacation was sunny, silly, and far too short.</p> 
+	             <p>Telephone number: $FLD4</p>
+	     </center>
+	   </body>
+         </html>" > $SIMPDIR/info.html
+
+#And open the page to se how it looks like
+sleep 2
+`x-www-browser $SIMPDIR/info.html`
