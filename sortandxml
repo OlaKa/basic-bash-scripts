@@ -9,7 +9,7 @@ if [ -z "$1" ]
   then
     echo -e "You must provide a input to the script with"
     echo -e "format: Username:Firstname:Lastname:Telephone number"
-    exit
+    exit 1
 fi
 
 echo $INPUT | awk -F':' '
