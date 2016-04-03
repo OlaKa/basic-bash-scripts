@@ -37,6 +37,6 @@ echo " <html>
 	   </body>
          </html>" > $SIMPDIR/info.html
 
-#And open the page to se how it looks like
+#And open the page to see how it looks like
 sleep 2
 `x-www-browser $SIMPDIR/info.html`
