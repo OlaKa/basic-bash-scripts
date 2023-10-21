@@ -31,7 +31,7 @@ echo " <html>
 	  </head>
 	  <body>
 	     <center> <h1>$FLD2 $FLD3</h1></center>
-	     <center><p>&quot;Sometimes the questions are complicated and the answers are simple.&quot;</p> 
+	     <center><p>&quot;Make the code simple.&quot;</p> 
 	             <p>Telephone number: $FLD4</p>
 	     </center>
 	   </body>
